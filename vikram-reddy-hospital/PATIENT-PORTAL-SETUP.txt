@@ -1,0 +1,33 @@
+VIKRAM REDDY HOSPITAL - PATIENT PORTAL SETUP
+
+IMPORTANT: The original hospital_management database must already be imported.
+
+1. Stop and restart Apache only if you have files open in your editor. MySQL must be running.
+2. Copy/replace the contents of this project into:
+   C:\xampp\htdocs\vikram-reddy-hospital\
+   Make sure index.php is directly inside that folder (not inside a second folder).
+3. Open http://localhost/phpmyadmin/
+4. Click the hospital_management database on the left.
+5. Click the SQL tab.
+6. Open this project's database\patient_portal_upgrade.sql in Notepad.
+7. Copy all SQL from that file, paste it into phpMyAdmin's SQL box, and click Go.
+   Run this upgrade ONE TIME ONLY. Do not re-import hospital_management.sql.
+8. Open http://localhost/vikram-reddy-hospital/
+9. The public home page displays:
+   - Patient Registration (new patients create a linked patient + login account)
+   - Patient Login (existing patient portal accounts)
+   - Admin / Staff Login (existing hospital staff dashboard)
+10. Test registration with a new email address, then sign out and test Patient Login.
+
+DEMO STAFF ADMIN LOGIN
+Email: admin@vikramreddyhospital.in
+Password: Admin@12345
+Change the demo password before using real patient data.
+
+FORGOT PASSWORD
+The reset flow uses PHP mail(). A default XAMPP installation usually cannot send email until SMTP/sendmail has been configured in php.ini and sendmail.ini (or another trusted mail transport). If email is not configured, the page will tell the patient to contact hospital reception. Reset tokens are never displayed in the browser.
+
+EXISTING PATIENT RECORDS
+For privacy, a new public registration cannot claim an existing patient chart just by entering its email address. Existing patients should contact reception to verify identity and arrange portal account activation.
+
+This is a local development/demo application, not a production-certified electronic medical record. Do not enter real patient data until it has undergone professional security/privacy review, access-control review, HTTPS configuration and verified backups.
